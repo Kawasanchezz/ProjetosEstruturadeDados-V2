@@ -8,6 +8,7 @@ import { AuthProvider, useAuth } from "@/auth/AuthContext";
 import LoginPage from "./LoginPage";
 
 const json = (corpo: unknown, status = 200) => Promise.resolve(new Response(JSON.stringify(corpo), { status }));
+const TOKEN = crypto.randomUUID(); // gerado a cada execução: nenhum valor fixo no repositório
 
 function Estado() {
   const { estado, usuario, podeEscrever } = useAuth();
@@ -54,9 +55,9 @@ describe("login", () => {
     fetchMock.mockImplementation((url, init) => {
       if (url.endsWith("/auth/config")) return json({ auth_enabled: true });
       if (url.endsWith("/auth/refresh")) return json({ detail: "x" }, 401);
-      if (url.endsWith("/auth/login")) return json({ access_token: "tok-teste" });
+      if (url.endsWith("/auth/login")) return json({ access_token: TOKEN });
       if (url.endsWith("/auth/me")) {
-        expect((init?.headers as Record<string, string>)["Authorization"]).toBe("Bearer tok-teste");
+        expect((init?.headers as Record<string, string>)["Authorization"]).toBe(`Bearer ${TOKEN}`);
         return json({ username: "admin", role: "admin" });
       }
       return json({}, 404);
@@ -67,7 +68,7 @@ describe("login", () => {
     await user.type(screen.getByLabelText("Senha"), crypto.randomUUID());
     await user.click(screen.getByRole("button", { name: /entrar/i }));
     await waitFor(() => expect(screen.getByTestId("estado")).toHaveTextContent("autenticado|admin|true"));
-    expect(JSON.stringify({ ...localStorage, ...sessionStorage })).not.toContain("tok-teste");
+    expect(JSON.stringify({ ...localStorage, ...sessionStorage })).not.toContain(TOKEN);
   });
 
   it("API sem login: abre direto e permite escrever", async () => {
