@@ -1,168 +1,157 @@
-# TreeBOM
+<h1 align="center">🌳 TreeBOM</h1>
 
-Sistema de **Lista de Materiais (BOM)** modelado com **árvore genérica** (cada nó tem N filhos). Cadastre a fórmula de um produto,
-veja a **explosão** da árvore, **simule a produção** de N unidades e **atualize o preço** de um componente para ver a **implosão**
-do novo custo subindo até a raiz.
+<p align="center">
+  Lista de Materiais (BOM) com <b>árvore genérica</b>: monte a fórmula de um produto, veja a explosão,<br>
+  simule a produção e acompanhe o novo custo subir até a raiz quando um preço muda.
+</p>
 
-Projeto acadêmico de Estrutura de Dados II. A árvore e os percursos são implementados à mão (classe de nó e algoritmos próprios),
-sem estruturas prontas que escondam a árvore.
+<p align="center">
+  <a href="https://github.com/Kawasanchezz/ProjetosEstruturadeDados-V2/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Kawasanchezz/ProjetosEstruturadeDados-V2/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/Kawasanchezz/ProjetosEstruturadeDados-V2/security"><img alt="Segurança" src="https://img.shields.io/badge/segurança-CodeQL%20%7C%20bandit%20%7C%20pip--audit-2ea44f?logo=github&logoColor=white"></a>
+  <a href="LICENSE"><img alt="Licença MIT" src="https://img.shields.io/badge/licença-MIT-green"></a>
+  <img alt="Projeto acadêmico" src="https://img.shields.io/badge/projeto-acadêmico-8A2BE2">
+</p>
 
-## Funcionalidades
+<p align="center">
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white">
+  <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white">
+  <img alt="SQLAlchemy" src="https://img.shields.io/badge/SQLAlchemy-2.0-D71F00?logo=sqlalchemy&logoColor=white">
+  <img alt="SQLite" src="https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white">
+  <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-opcional-4169E1?logo=postgresql&logoColor=white">
+  <br>
+  <img alt="React" src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white">
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white">
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white">
+  <img alt="Framer Motion" src="https://img.shields.io/badge/Framer_Motion-0055FF?logo=framer&logoColor=white">
+  <img alt="GSAP" src="https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=black">
+  <br>
+  <img alt="pytest" src="https://img.shields.io/badge/pytest-0A9EDC?logo=pytest&logoColor=white">
+  <img alt="Vitest" src="https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=white">
+  <img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub_Actions-2088FF?logo=githubactions&logoColor=white">
+  <img alt="Dependabot" src="https://img.shields.io/badge/Dependabot-025E8C?logo=dependabot&logoColor=white">
+</p>
 
-- **Cadastro** de produtos e componentes em vários níveis, com edição, mover de lugar e exclusão em cascata com confirmação.
-- **Explosão:** árvore interativa (zoom, arrastar, expandir/recolher, busca com destaque, navegação por teclado) e painel com quantidade,
-  preço, custo da subárvore e caminho até a raiz.
-- **Simulação de produção:** para N unidades, a quantidade necessária de cada componente (multiplicada ao longo do caminho da raiz até o nó),
-  o custo de aquisição e um gráfico de composição.
-- **Atualização de preço + implosão:** o novo custo é recalculado subindo do nó alterado até a raiz, animado nó a nó, com "antes → depois" e a diferença em R$.
-- **Dashboard** com os produtos, resumo e gráfico de custo; **tema claro/escuro**; layout responsivo (no celular a navegação fica numa barra inferior).
-- **Login opcional** (JWT, perfis `admin` e `viewer`), trilha de auditoria das alterações de preço e exclusões. Veja o [SECURITY.md](SECURITY.md).
+Projeto acadêmico de **Estrutura de Dados II**. A árvore e os percursos são implementados à mão, sem bibliotecas que escondam a estrutura.
 
-## Tecnologias
+## ✨ O que faz
 
-| Camada | Tecnologias |
+| | |
 |---|---|
-| Backend | Python 3.13, FastAPI, Pydantic, SQLAlchemy 2, Alembic, SQLite (padrão) ou PostgreSQL |
-| Frontend | React 18, TypeScript, Vite, Tailwind CSS 4, TanStack Query, React Router, Recharts, react-hook-form + zod |
-| Animações | Framer Motion (`motion`) e GSAP (`@gsap/react`, ScrollTrigger) |
-| Testes | pytest (backend) e Vitest + React Testing Library (frontend) |
+| 📦 **Cadastro** | Produtos e componentes em vários níveis: editar, mover e excluir em cascata (com confirmação). |
+| 🌲 **Explosão** | Árvore interativa com zoom, busca e painel com quantidade, preço e custo de cada nó. |
+| 🏭 **Simulação** | Para N unidades, quanto de cada componente é necessário e quanto custa. |
+| 📈 **Implosão** | Ao mudar um preço, o novo custo é recalculado do nó até a raiz, passo a passo. |
+| 📊 **Dashboard** | Resumo dos produtos, gráfico de custos, tema claro/escuro e layout para celular. |
+| 🔐 **Login opcional** | Perfis `admin` e `viewer` e trilha de auditoria das alterações. |
 
-## Como rodar
+## 🚀 Como rodar
 
-### Pré-requisitos
-- **Python 3.13** (no Windows, com o launcher `py`) e **Node.js 20 ou mais novo**.
-- Os scripts de atalho usam `py -3` e `taskkill`, ou seja, **funcionam no Windows**. Em macOS/Linux, veja "Rodar sem o atalho".
+Precisa de **Python 3.13** e **Node.js 20+** (os atalhos abaixo são para Windows).
 
-### Instalar (uma vez)
 ```powershell
-npm run setup
+npm run setup     # instala as dependências (uma vez)
+node dev.mjs      # sobe API e site juntos; Ctrl + C encerra os dois
 ```
-Instala as dependências do Python (`backend/requirements.txt`, com verificação de hash) e as do front (`frontend`).
 
-### Desenvolvimento (API + front juntos)
-```powershell
-node dev.mjs
-```
-Abra **http://localhost:5173**. `Ctrl + C` encerra os dois. O banco SQLite (`backend/bom.db`) e as tabelas são criados sozinhos no primeiro uso.
-Na tela inicial, use **"Carregar exemplo"** (Caneta ou Computador) para ter dados.
+Abra **http://localhost:5173** e clique em **Carregar exemplo** (Caneta ou Computador).
+A API fica em http://localhost:8000 e a documentação interativa em http://localhost:8000/api/docs.
 
-- API: http://localhost:8000 · documentação interativa (Swagger): http://localhost:8000/api/docs
+<details>
+<summary>Rodar sem o atalho (macOS/Linux)</summary>
 
-### Rodar sem o atalho (macOS/Linux ou separado)
 ```bash
-cd backend  && python3 -m uvicorn app.main:app --reload          # terminal 1 (porta 8000)
-cd frontend && npm run dev                                       # terminal 2 (porta 5173)
+cd backend  && python3 -m uvicorn app.main:app --reload   # terminal 1
+cd frontend && npm run dev                                # terminal 2
 ```
+</details>
 
-### Produção (o FastAPI serve o front compilado)
+<details>
+<summary>Colocar em produção</summary>
+
 ```powershell
-cd frontend ; npm ci ; npm run build          # gera frontend/dist (HTML/CSS/JS estáticos)
+cd frontend ; npm ci ; npm run build
 cd ../backend
 $env:APP_ENV="production"; $env:AUTH_ENABLED="true"; $env:JWT_SECRET="<32+ caracteres aleatórios>"
 $env:ADMIN_USERNAME="admin"; $env:ADMIN_PASSWORD="<12+ caracteres>"; $env:CORS_ORIGINS="https://seu-dominio"
 $env:STATIC_DIR="../frontend/dist"
 py -3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --proxy-headers --no-server-header
 ```
-Coloque HTTPS na frente (proxy reverso ou a hospedagem). Em produção o login é obrigatório e o Swagger e o `seed` ficam desligados.
-Todas as variáveis estão no [SECURITY.md](SECURITY.md); `.env.example` mostra as principais.
+Use HTTPS na frente. Todas as variáveis estão no [SECURITY.md](SECURITY.md).
+</details>
 
-## Testes
+## 🧪 Testes
 
 ```powershell
-# backend
-cd backend
-py -3 -m pip install -r requirements-dev.in
-py -3 -m pytest -q
-py -3 -X utf8 -m app.demo        # Testes 1 e 2 do enunciado, com saída formatada no console
-
-# frontend
+cd backend  ; py -3 -m pip install -r requirements-dev.in ; py -3 -m pytest -q
 cd frontend ; npm test
+py -3 -X utf8 -m app.demo      # Caneta e Computador do enunciado, no console
 ```
-O `app.demo` imprime a árvore, o total (Caneta = **R$ 7,50**, Computador = **R$ 8.080,00**) e a simulação (10 canetas e 5 computadores).
-Um workflow de CI (`.github/workflows/ci.yml`) roda tudo isso, mais `bandit`, `pip-audit` e `npm audit`, a cada push.
 
-## Regra de cálculo
+O CI do GitHub roda tudo isso, mais `bandit`, `pip-audit`, `npm audit` e CodeQL.
+
+## 🧮 Regra de cálculo
 
 ```
-custo_unitario(nó) = preço_próprio(nó) + soma( custo_total(filho) )   para cada filho
-custo_total(nó)    = quantidade(nó) × custo_unitario(nó)
+custo_unitario(nó) = preço_próprio + soma( custo_total(filho) )
+custo_total(nó)    = quantidade × custo_unitario
 ```
-Todos os nós somam, inclusive os intermediários ("Tinta", "Placa-Mãe"), que têm preço próprio (montagem/mão de obra).
 
-**Suposição declarada:** o enunciado fala em somar o "custo unitário" de cada filho, mas o total esperado do Computador (R$ 8.080,00) só
-fecha se cada filho entrar **com a sua própria quantidade** (a Memória RAM é 2 × R$ 200,00). Por isso o filho contribui com o seu `custo_total`.
+| Exemplo | Resultado |
+|---|---|
+| Caneta | **R$ 7,50** |
+| Computador | **R$ 8.080,00** |
+| 10 canetas | R$ 75,00 |
+| 5 computadores | R$ 40.400,00 |
 
-**Simulação:** para `N` unidades, `quantidade_total(nó) = N × produto das quantidades da raiz até o nó` e `custo(nó) = quantidade_total × preço próprio`.
-A soma dos custos é igual a `N × custo_total(raiz)`.
+Todos os nós somam, inclusive os intermediários, que têm preço próprio (montagem). Cada filho entra com a **própria quantidade**: é assim que o Computador fecha em R$ 8.080,00.
+Na simulação, `quantidade_total = N × produto das quantidades da raiz até o nó`.
 
-**Implosão:** ao mudar o preço de um nó, recalcula-se o custo de cada ancestral até a raiz. A API devolve a lista de ids afetados
-(do nó até a raiz), com o custo antes e depois de cada um, e é isso que a animação usa.
+## 🏗️ Como foi feito
 
-**Exclusão:** é **em cascata**: remover um nó remove toda a sua subárvore. A tela mostra quantos itens serão removidos e pede confirmação.
+- **Camadas:** `domain` (árvore e algoritmos, sem framework) → `services` → `repositories` → `api`.
+- **Ids únicos:** "Plástico" pode aparecer sob "Corpo" e sob "Tampa", e cada um é um nó diferente.
+- **Algoritmos iterativos:** sem recursão, então não estouram o limite do Python (testado com 5.000 níveis).
+- **Validação:** ciclo, pai inexistente e raiz duplicada geram erro claro.
+- **Dinheiro:** `Decimal` no backend, centavos no banco e string na API (`"8080.00"`), nunca `float`.
+- **Banco:** SQLite por padrão (PostgreSQL opcional), com migrações Alembic.
 
-**Dinheiro:** `Decimal` no backend, inteiro em centavos no banco e **string** na API (`"8080.00"`), nunca `float`.
-
-## Decisões de arquitetura
-
-- **Camadas:** `domain` (nó da árvore e algoritmos, sem dependência de framework) → `services` → `repositories` → `api`.
-- **Nomes repetidos** ("Plástico" aparece sob "Corpo" e sob "Tampa"): cada nó tem **id único** e o pai é resolvido pelo contexto, nunca só pelo nome.
-- **Construção em O(n)** com dicionário; detecção de ciclo, pai inexistente e raiz múltipla com erros claros.
-- **Percursos iterativos:** os cálculos não dependem do limite de recursão do Python (testado com 5.000 níveis).
-- **Banco:** uma tabela com auto-relacionamento (`id`, `nome`, `parent_id`, `quantidade`, `preco`) e índice em `parent_id`, migrações com Alembic.
-- **Limites:** profundidade 50, 2.000 nós por produto, 100 filhos por nó, tetos de quantidade e de valor (todos configuráveis).
-
-### API (prefixo `/api`)
+<details>
+<summary>Rotas da API (prefixo <code>/api</code>)</summary>
 
 | Método | Rota | O que faz |
 |---|---|---|
-| GET/POST | `/produtos` | lista (paginada) e cria produtos |
-| GET/PUT/DELETE | `/produtos/{id}` | lê, edita e exclui (cascata) |
+| GET / POST | `/produtos` | lista e cria produtos |
+| GET / PUT / DELETE | `/produtos/{id}` | lê, edita e exclui (cascata) |
 | GET | `/produtos/{id}/explosao` | árvore completa com custos |
-| POST | `/produtos/{id}/simulacao` | `{ "quantidade": N }` → componentes e custo total |
-| GET | `/produtos/{id}/componentes` | lista plana (para selecionar o pai) |
-| POST/GET/PUT/DELETE | `/componentes`, `/componentes/{id}` | CRUD de componentes (inclui mover de pai) |
+| POST | `/produtos/{id}/simulacao` | `{ "quantidade": N }` |
+| GET | `/produtos/{id}/componentes` | lista plana de componentes |
+| POST / GET / PUT / DELETE | `/componentes`, `/componentes/{id}` | CRUD de componentes |
 | PATCH | `/componentes/{id}/preco` | atualiza o preço e devolve a implosão |
-| POST | `/seed/{caneta\|computador}` | carrega os exemplos |
 | GET | `/auditoria` | trilha de auditoria (admin) |
+</details>
 
-## Animações: Framer Motion × GSAP
+## 🔒 Segurança
 
-Regra: **nunca animar a mesma propriedade do mesmo elemento com as duas bibliotecas** (nos cards da árvore, o elemento externo é do
-Framer e o interno é do GSAP). Tudo respeita `prefers-reduced-motion`.
+Login com Argon2id e JWT, perfis `admin` e `viewer` verificados no servidor, validação de toda entrada, limite de requisições e trilha de auditoria.
+O CI roda **CodeQL**, `bandit`, `pip-audit` e `npm audit`, e o repositório usa Dependabot e Secret scanning.
+Detalhes e como reportar uma vulnerabilidade: [SECURITY.md](SECURITY.md).
 
-- **Framer Motion:** transições de página, expandir/recolher nós, posição dos cards, entrada e saída de cards e linhas de tabela, modais,
-  toasts, hover/tap, `layoutId` do menu e do seletor de produto.
-- **GSAP:** intro do cabeçalho com stagger, desenho das linhas conectoras (`stroke-dashoffset`), contagem animada dos valores, efeito de
-  **explosão** (nós saem do centro e se organizam), timeline da **implosão** (pulso subindo do nó até a raiz) e ScrollTrigger.
-
-## Roteiro de demonstração
-
-1. **Dashboard:** mostre os cartões e o resumo; clique em **Carregar exemplo: Caneta** e depois **Computador**.
-2. **Explosão:** abra a Caneta, destaque os dois "Plástico" (nós distintos), expanda/recolha, busque "plást", selecione um nó e mostre o caminho até a raiz; clique em "Explodir novamente".
-3. **Simulação:** 10 canetas → **R$ 75,00**; 5 computadores → **R$ 40.400,00** (veja a Memória RAM: 10 unidades).
-4. **Preço e implosão:** mude o "Plástico" do Corpo de 0,70 para 1,70 e assista ao pulso subir (Plástico → Corpo → Caneta), com **+R$ 1,00** em cada degrau e total R$ 7,50 → R$ 8,50.
-5. **Cadastro:** crie um produto e um componente, mova um nó, tente criar um ciclo (erro claro) e exclua um nó em cascata.
-6. **Perfis (opcional):** com `AUTH_ENABLED=true`, entre como `viewer` e veja que só `admin` altera preços; a trilha fica em `GET /api/auditoria`.
-
-## Estrutura
+## 📁 Estrutura
 
 ```
-backend/
-  app/domain/        nó da árvore e algoritmos (sem framework)
-  app/services/      casos de uso     app/repositories/  acesso a dados     app/api/  rotas e schemas
-  app/security/      JWT, papéis, middlewares     alembic/  migrações     tests/  pytest
-frontend/
-  src/api/  src/auth/  src/components/{tree,ui,charts,layout}  src/features/  src/lib/animations/  src/pages/
-dev.mjs              sobe API + front juntos (Windows)
-SECURITY.md          política de segurança, variáveis de ambiente e checklist de deploy
+backend/    app/domain · services · repositories · api · security   alembic/   tests/
+frontend/   src/api · auth · components · features · lib/animations · pages
+dev.mjs     sobe API e site juntos
+SECURITY.md política de segurança, variáveis e checklist de deploy
 ```
 
-## Limitações e melhorias futuras
+## ⚠️ Limitações
 
-- Os scripts de atalho são para Windows; em outros sistemas use os comandos "sem o atalho".
-- Rate limit por processo (use `REDIS_URL` para compartilhar entre réplicas); sem MFA.
-- Melhorias possíveis: importar/exportar fórmulas (CSV), histórico de versões de uma fórmula, custos por fornecedor, virtualização de árvores muito grandes.
+- Os atalhos (`dev.mjs`) são para Windows.
+- O limite de requisições é por processo (use `REDIS_URL` para várias réplicas) e não há MFA.
+- Ideias futuras: importar/exportar fórmulas (CSV), histórico de versões e custos por fornecedor.
 
-## Licença
+## 📄 Licença
 
 [MIT](LICENSE)
