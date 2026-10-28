@@ -1,0 +1,10 @@
+# Dependências diretas. Gere o lock com hashes:  pip-compile --generate-hashes requirements.in -o requirements.txt
+fastapi
+uvicorn
+pydantic
+sqlalchemy
+alembic
+argon2-cffi
+PyJWT
+psycopg[binary]
+redis

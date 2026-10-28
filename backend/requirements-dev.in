@@ -1,0 +1,7 @@
+# Ferramentas de teste e análise.  pip install -r requirements-dev.in
+-r requirements.in
+pytest
+httpx
+fakeredis
+bandit
+pip-audit

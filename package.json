@@ -1,0 +1,12 @@
+{
+  "name": "treebom",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "setup": "py -3 -m pip install -r backend/requirements.txt && npm --prefix frontend install",
+    "dev": "node dev.mjs",
+    "test": "npm run test:api && npm run test:web",
+    "test:api": "cd backend && py -3 -m pytest -q",
+    "test:web": "npm --prefix frontend test"
+  }
+}
