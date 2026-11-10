@@ -92,5 +92,5 @@ Este é um projeto acadêmico: não há garantia de que esteja livre de falhas.
 - **Timeout (504):** o cliente recebe o erro e a conexão é liberada, mas trabalho que ignora interrupção termina sozinho; a defesa principal são os tetos de tamanho da árvore. No PostgreSQL o `statement_timeout` interrompe a consulta no servidor.
 - **SQLite** serve a um usuário/poucos usuários; para uso real, prefira PostgreSQL.
 - **PostgreSQL:** o esquema e o driver existem, mas os testes automáticos rodam só em SQLite.
-- **Dependências Java:** não há verificação automática de CVEs no CI (apenas Dependabot para Maven e `npm audit` no front). Rode `OWASP dependency-check` ou habilite o code scanning do GitHub antes de publicar.
+- **Dependências Java:** não há verificação automática de CVEs no CI além do Dependabot (Maven e npm) e do `npm audit` no front. A análise de código roda no CodeQL (`.github/workflows/codeql.yml`); para CVEs de dependências Java, habilite os alertas do Dependabot no GitHub.
 - **Ações do GitHub** no CI estão fixadas por tag de versão, não por SHA de commit.
