@@ -12,6 +12,11 @@ updates:
     directory: /frontend
     schedule: { interval: weekly }
     open-pull-requests-limit: 5
+    ignore:
+      # Versões maiores (ex.: React 18 -> 19) exigem migração do código; ficam para decisão manual.
+      # Atualizações menores e de correção continuam chegando.
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule: { interval: weekly }
