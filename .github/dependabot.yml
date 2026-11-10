@@ -4,6 +4,10 @@ updates:
     directory: /backend-java
     schedule: { interval: weekly }
     open-pull-requests-limit: 5
+    ignore:
+      # Spring Boot 4 é uma versão maior e quebra o código (exige migração). Atualizações 3.x continuam chegando.
+      - dependency-name: "org.springframework.boot:spring-boot-starter-parent"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: npm
     directory: /frontend
     schedule: { interval: weekly }
