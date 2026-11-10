@@ -1,0 +1,64 @@
+# Configuração via variáveis de ambiente (12-factor).
+spring:
+  main:
+    banner-mode: "off"
+  jmx:
+    enabled: false
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    deserialization:
+      use-big-decimal-for-floats: true
+  flyway:
+    enabled: ${AUTO_MIGRATE:true}
+    locations: classpath:db/migration/{vendor}
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false   # os arquivos estáticos (build do Vite) são servidos por WebConfig
+
+server:
+  port: ${PORT:8000}
+  server-header: ""          # não revela o servidor
+  forward-headers-strategy: ${FORWARD_HEADERS:none}   # "native" atrás de proxy confiável (IP real no limite de requisições)
+  error:
+    include-stacktrace: never
+    include-message: never
+  tomcat:
+    max-swallow-size: 128KB
+    threads:
+      max: 32          # padrão é 200; o app é leve e o limite de requisições já protege
+      min-spare: 2
+    accept-count: 50
+
+logging:
+  structured:
+    format:
+      console: logstash   # JSON com escape correto (mensagens com aspas/quebras de linha não forjam registros); inclui o request_id do MDC
+
+treebom:
+  app-env: ${APP_ENV:development}
+  # URL JDBC. PostgreSQL: jdbc:postgresql://host:5432/banco (com DATABASE_USER e DATABASE_PASSWORD)
+  database-url: ${DATABASE_URL:jdbc:sqlite:./bom.db?foreign_keys=on&journal_mode=WAL&busy_timeout=5000}
+  database-user: ${DATABASE_USER:}
+  database-password: ${DATABASE_PASSWORD:}
+  static-dir: ${STATIC_DIR:}
+  cors-origins: ${CORS_ORIGINS:http://localhost:5173}
+  rate-limit: ${RATE_LIMIT:120/minute}
+  write-rate-limit: ${WRITE_RATE_LIMIT:30/minute}
+  login-rate-limit: ${LOGIN_RATE_LIMIT:10/minute}
+  max-body-bytes: ${MAX_BODY_BYTES:65536}
+  request-timeout-s: ${REQUEST_TIMEOUT_S:15}
+  enable-seed: ${ENABLE_SEED:}
+  hsts: ${HSTS:}
+  max-profundidade: ${MAX_PROFUNDIDADE:50}
+  max-nos-por-produto: ${MAX_NOS_POR_PRODUTO:2000}
+  max-filhos-por-no: ${MAX_FILHOS_POR_NO:100}
+  auth-enabled: ${AUTH_ENABLED:false}
+  jwt-secret: ${JWT_SECRET:}
+  jwt-secret-anterior: ${JWT_SECRET_ANTERIOR:}
+  access-ttl-minutos: ${ACCESS_TTL_MINUTOS:10}
+  refresh-ttl-dias: ${REFRESH_TTL_DIAS:7}
+  cookie-secure: ${COOKIE_SECURE:}
+  admin-username: ${ADMIN_USERNAME:}
+  admin-password: ${ADMIN_PASSWORD:}

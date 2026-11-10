@@ -1,0 +1,11 @@
+# Perfil dos testes: banco SQLite em arquivo descartável e limites altos (cada teste sobrescreve o que quer provar).
+treebom:
+  database-url: jdbc:sqlite:./target/teste.db?foreign_keys=on&journal_mode=WAL&busy_timeout=5000
+  rate-limit: 100000/minute
+  write-rate-limit: 100000/minute
+  login-rate-limit: 100000/minute
+  cors-origins: http://localhost:5173
+logging:
+  level:
+    bom: ERROR
+    root: WARN
