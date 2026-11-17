@@ -21,7 +21,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sqlite-jdbc.version>3.54.1.0</sqlite-jdbc.version>
     <java-jwt.version>4.6.2</java-jwt.version>
-    <bcprov.version>1.86</bcprov.version>
+    <bcprov.version>1.87</bcprov.version>
   </properties>
 
   <dependencies>
